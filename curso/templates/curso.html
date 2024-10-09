@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>{{tittle}}</h1>    
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Capacidad</th>
+        <th scope="col">Profesor</th>
+      </tr>
+    </thead>
+
+
+        {% for curso in curso %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{curso.nombre}}</td>
+                <td>{{curso.capacidad}}</td>
+                <td>{{curso.profesor}}</td>
+                
+            </tr>
+        {% endfor %}
+      
+    </tbody>
+</table>
+
+
+{% endblock  %}

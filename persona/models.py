@@ -1,5 +1,5 @@
 from django.db import models
-
+from django import forms
 class Persona(models.Model):  
     nombre = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
@@ -15,4 +15,7 @@ class Persona(models.Model):
 
     class Meta:
         db_table = 'persona'
+        
+        
+        
         

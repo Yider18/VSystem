@@ -5,3 +5,7 @@ def inicio(request):
 
 def prueba(request):
     return render(request, 'prueba.html');
+
+
+
+
