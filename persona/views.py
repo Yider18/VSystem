@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Persona
 
-def create_Persona (request):
+def formulario (request):
      if request.method == 'POST':
          nombre= request.POST['nombre']
          apellidos= request.POST['apellidos']
@@ -21,7 +21,7 @@ def create_Persona (request):
             rol=rol
         )
          persona= persona.save();
-         return redirect(request,'lista_estudiantes.html')
+     return render(request, 'formulario.html')
 
 def get_estudiantes(request):
 

@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from persona import views 
 from mainApp.views import inicio, prueba
-from persona.views import get_estudiantes,create_Persona
+from persona.views import get_estudiantes,formulario
 from curso.views import  curso
 
 
@@ -27,5 +28,6 @@ urlpatterns = [
     path('lista-estudiantes/', get_estudiantes, name='lista-estudiantes'),
     path('prueba/', prueba, name='prueba'),
     path('curso/', curso, name= 'curso'),
-    path('create_Persona/',create_Persona, name= 'create_Persona'),
+    path('formulario/',formulario , name='formulario'), 
+     
 ]
