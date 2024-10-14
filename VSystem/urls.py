@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from persona import views 
 from mainApp.views import inicio, prueba
-from persona.views import get_estudiantes,formulario
+from persona.views import get_estudiantes,formulario,Estudiantecurso
 from curso.views import  curso
 
 
@@ -29,5 +29,5 @@ urlpatterns = [
     path('prueba/', prueba, name='prueba'),
     path('curso/', curso, name= 'curso'),
     path('formulario/',formulario , name='formulario'), 
-     
+    path('Estudiante_Curso/',Estudiantecurso, name='Estudiantecurso' )
 ]

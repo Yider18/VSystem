@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Persona
+from .models import EstudianteCurso 
+from curso.models import Curso
 
 def formulario (request):
      if request.method == 'POST':
@@ -34,12 +36,12 @@ def get_estudiantes(request):
         })
     
 
-         
-         
-       
-       
-       
-       
-       
-       
-     
+def Estudiantecurso(request):
+
+    Estudiantes_Curso = EstudianteCurso.objects.filter(Estudiante_id__rol='estudiante');
+    
+
+    return render(request, 'Estudiante_curso.html', {
+            'tittle': 'Estudiante_Curso',
+            'EstudiantesC': Estudiantes_Curso
+        })

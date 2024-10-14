@@ -4,3 +4,4 @@ admin.site.register(Curso)
 
 class CursoAdmin(admin.ModelAdmin):
     list_display = ('Nombre','Capacidad','Profesor')
+

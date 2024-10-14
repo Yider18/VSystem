@@ -10,7 +10,7 @@ class Curso(models.Model):
     
     def save(self,*args,**kwargs):
         if self.profesor.rol != 'profesor':
-            raise ValidationError ('el rol del profesor debe ser docente')
+            raise ValidationError ('el rol del profesor debe ser profesor')
         super().save(*args,**kwargs)
        
     

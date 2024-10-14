@@ -1,0 +1,32 @@
+{% extends "index.html" %} {% block content %}
+
+<h1>{{tittle}}</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Curso id</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha final</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Nota</th>
+    </tr>
+  </thead>
+
+    {% for EstudianteCurso in EstudiantesC %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{EstudianteCurso.Estudiante_id.nombre}}</td>
+      <td>{{EstudianteCurso.Curso_id.nombre}}</td>
+      <td>{{EstudianteCurso.fecha_inicio}}</td>
+      <td>{{EstudianteCurso.fecha_final}}</td>
+      <td>{{EstudianteCurso.Estado}}</td>
+      <td>{{EstudianteCurso.Nota}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

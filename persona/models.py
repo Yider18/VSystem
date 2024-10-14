@@ -1,5 +1,6 @@
 from django.db import models
-from django import forms
+
+
 class Persona(models.Model):  
     nombre = models.CharField(max_length=100)
     apellidos = models.CharField(max_length=100)
@@ -19,3 +20,16 @@ class Persona(models.Model):
         
         
         
+class EstudianteCurso(models.Model):  
+    Estudiante_id = models.ForeignKey('persona.Persona', on_delete=models.PROTECT, limit_choices_to={'rol': 'estudiante'}) 
+    Curso_id = models.ForeignKey('curso.Curso', on_delete=models.PROTECT)
+    fecha_inicio = models.DateField()
+    fecha_final =models.DateField()
+    Estado = models.CharField(max_length=10)
+    Nota = models.FloatField()
+  
+    def __str__(self):
+        return f'{self.Estudiante_id} {self.Curso_id} - {self.fecha_inicio} - {self.fecha_final} - {self.Estado} - {self.Nota}'
+
+    class Meta:
+        db_table = 'Estudiante_Curso' 
