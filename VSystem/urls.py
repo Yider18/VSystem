@@ -20,7 +20,7 @@ from persona import views
 from mainApp.views import inicio, prueba
 from persona.views import get_estudiantes,formulario,Estudiantecurso
 from curso.views import  curso
-
+from matricula.views import lista_matriculas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,6 @@ urlpatterns = [
     path('prueba/', prueba, name='prueba'),
     path('curso/', curso, name= 'curso'),
     path('formulario/',formulario , name='formulario'), 
-    path('Estudiante_Curso/',Estudiantecurso, name='Estudiantecurso' )
+    path('Estudiante_Curso/',Estudiantecurso, name='Estudiantecurso' ),
+    path('matriculas/', lista_matriculas, name='lista_matriculas'),
 ]
