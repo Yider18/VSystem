@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Persona
-from .models import EstudianteCurso 
+from matricula.models import Matricula
+from persona.models import EstudianteCurso 
 from curso.models import Curso
 
 def formulario (request):
@@ -45,3 +46,22 @@ def Estudiantecurso(request):
             'tittle': 'Estudiante_Curso',
             'EstudiantesC': Estudiantes_Curso
         })
+    
+def formulario_matricula(request):
+    if request.method == 'POST':
+        estudiante_curso_id = request.POST['estudiante_curso']
+        fecha_inicio = request.POST['fecha_inicio']
+        estado = request.POST['estado']
+        costo = request.POST['costo']
+
+        matricula = Matricula(
+            estudiante_curso_id=estudiante_curso_id,
+            fecha_inicio=fecha_inicio,
+            estado=estado,
+            costo=costo
+        )
+        matricula.save()  
+        return redirect('formulario')  
+
+    estudiantes_cursos = EstudianteCurso.objects.all()  
+    return render(request, 'formulario.html', {'estudiantes_cursos': estudiantes_cursos})
